@@ -12,6 +12,8 @@ from utils.nutrition_utils import get_nutrition_info
 from routers import auth_router, usuario_router, barcode_router  # rutas de /auth/login /auth/register /auth/users ...
 from routers import upload_router
 
+from routers import meal_history_router
+from routers import dashboard_router
 
 
 # ============================================================
@@ -36,7 +38,8 @@ app.include_router(auth_router.router)
 app.include_router(barcode_router.router)
 app.include_router(usuario_router.router)
 app.include_router(upload_router.router)
-
+app.include_router(meal_history_router.router)
+app.include_router(dashboard_router.router)
 # ============================================================
 # 🔹 MODELO DE ENTRADA (para predict_url)
 # ============================================================

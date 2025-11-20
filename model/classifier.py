@@ -1,6 +1,7 @@
 import tensorflow as tf
 import numpy as np
 from PIL import Image
+import cv2 as cv
 
 # --- Cargar modelo y etiquetas ---
 MODEL_PATH = "model/keras_model_v1.h5"
@@ -19,7 +20,6 @@ def predict_image(image_path: str):
     predictions = model.predict(img_array)
     index = np.argmax(predictions[0])
     confidence = float(predictions[0][index]) * 100.0
-
     return {
         "plato": class_names[index],
         "confianza": round(confidence, 2)
